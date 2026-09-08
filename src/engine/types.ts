@@ -1,4 +1,5 @@
 export type Token = "A" | "B" | "C" | "D";
+export type Matrix4x4 = number[][];
 
 export interface InputSample {
   id: number;

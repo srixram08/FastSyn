@@ -9,6 +9,8 @@ interface HeroSectionProps {
   onOpenWorkspace: () => void;
   onOpenForensics: () => void;
   onOpenDocs: () => void;
+  onOpenMultiHead?: () => void;
+  onOpenStreaming?: () => void;
   simulation: SimulationRun;
 }
 
@@ -16,6 +18,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onOpenWorkspace,
   onOpenForensics,
   onOpenDocs,
+  onOpenMultiHead,
+  onOpenStreaming,
   simulation,
 }) => {
   const fastAcc = simulation.mechanisms.fastweight.accuracy.toFixed(1);
@@ -191,6 +195,55 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <h3 className="text-xl font-bold text-white">Results You Can Measure.</h3>
           <p className="text-xs font-mono text-slate-400 leading-relaxed">
             When environmental distributions shift, FastSyn rapidly recovers decision accuracy while static models collapse.
+          </p>
+        </div>
+      </div>
+
+      {/* ========================================================================= */}
+      {/* ADVANCED RESEARCH LABS: MULTI-HEAD & EDGE STREAMING OOM                   */}
+      {/* ========================================================================= */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        {/* Lab Card 1: Multi-Head Synaptic Binding */}
+        <div 
+          onClick={onOpenMultiHead}
+          className="purple-glass p-7 rounded-3xl border border-purple-500/40 hover:border-purple-400 transition-all cursor-pointer group shadow-xl"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2 text-xs font-mono text-fuchsia-300">
+              <Layers className="w-4 h-4 text-fuchsia-400" />
+              <span>ADVANCED RESEARCH LAB</span>
+            </div>
+            <div className="w-7 h-7 rounded-full bg-purple-600/30 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+              <ArrowUpRight className="w-4 h-4 text-purple-300" />
+            </div>
+          </div>
+          <h3 className="text-2xl font-bold text-white group-hover:text-purple-200 transition-colors">
+            Multi-Head Synaptic Binding & Associative Probe
+          </h3>
+          <p className="text-xs font-mono text-slate-300 mt-2 leading-relaxed">
+            Explore 4 independent parallel fast-weight heads ($A^{(1)} \dots A^{(4)}$), run interactive content-addressable vector queries, and inspect continuous Hopfield energy landscape attractors.
+          </p>
+        </div>
+
+        {/* Lab Card 2: Infinite Horizon Streaming & OOM Crash */}
+        <div 
+          onClick={onOpenStreaming}
+          className="purple-glass p-7 rounded-3xl border border-purple-500/40 hover:border-purple-400 transition-all cursor-pointer group shadow-xl"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2 text-xs font-mono text-amber-300">
+              <Cpu className="w-4 h-4 text-amber-400" />
+              <span>EDGE DEPLOYMENT LAB</span>
+            </div>
+            <div className="w-7 h-7 rounded-full bg-purple-600/30 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+              <ArrowUpRight className="w-4 h-4 text-purple-300" />
+            </div>
+          </div>
+          <h3 className="text-2xl font-bold text-white group-hover:text-purple-200 transition-colors">
+            Infinite Horizon Streaming & Hardware OOM Crash
+          </h3>
+          <p className="text-xs font-mono text-slate-300 mt-2 leading-relaxed">
+            Run live endless streaming inputs on simulated Microcontrollers (MCU) and Edge SBCs. Watch Transformer KV caches trigger a fatal Out-Of-Memory Crash while FastSyn operates forever in 64 Bytes.
           </p>
         </div>
       </div>

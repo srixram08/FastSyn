@@ -89,17 +89,54 @@ body {
 /* Floating Ambient Aurora Beam Keyframes */
 @keyframes auroraPulse {
   0%, 100% {
-    opacity: 0.7;
+    opacity: 0.75;
     transform: scale(1) translateY(0);
   }
   50% {
-    opacity: 0.95;
-    transform: scale(1.08) translateY(-15px);
+    opacity: 1;
+    transform: scale(1.08) translateY(-20px);
+  }
+}
+
+@keyframes beamAscend {
+  0% {
+    background-position-y: 100%;
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    background-position-y: 0%;
+    opacity: 0.8;
+  }
+}
+
+@keyframes verticalEnergyFlow {
+  0% {
+    transform: translateY(100%) scaleY(0.6);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-120%) scaleY(1.4);
+    opacity: 0;
   }
 }
 
 .animate-aurora-beam {
-  animation: auroraPulse 8s ease-in-out infinite;
+  animation: auroraPulse 6s ease-in-out infinite;
+}
+
+.animate-beam-ascend {
+  background-size: 100% 200%;
+  animation: beamAscend 4s linear infinite;
+}
+
+.animate-energy-streak {
+  animation: verticalEnergyFlow 3.5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
 }
 
 /* Custom Scrollbar */

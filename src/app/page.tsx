@@ -8,6 +8,9 @@ import { Stage04Experiment } from "@/components/stages/Stage04Experiment";
 import { ComplexityInspector } from "@/components/telemetry/ComplexityInspector";
 import { BenchmarkManager } from "@/components/benchmarks/BenchmarkManager";
 import { TechnicalDetailsModal } from "@/components/modals/TechnicalDetailsModal";
+import { FlowingUpwardBackground } from "@/components/canvas/FlowingUpwardBackground";
+import { MultiHeadProbeSection } from "@/components/laboratory/MultiHeadProbeSection";
+import { StreamingEdgeLab } from "@/components/streaming/StreamingEdgeLab";
 import { runSimulation } from "@/engine/simulation";
 import { SimulationConfig } from "@/engine/types";
 import { Cpu, ShieldCheck, ArrowUpRight } from "lucide-react";
@@ -101,11 +104,14 @@ export default function Home() {
       {/* Perspective Horizon Floor Grid */}
       <div className="fixed inset-0 bg-perspective-grid opacity-60 pointer-events-none z-0" />
 
+      {/* Dynamic Bioluminescent Upward Flowing Synaptic Background */}
+      <FlowingUpwardBackground />
+
       {/* Top Ambient Aurora Glow */}
       <div 
-        className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[450px] rounded-full pointer-events-none blur-[140px] opacity-35 z-0"
+        className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[450px] rounded-full pointer-events-none blur-[140px] opacity-40 z-0"
         style={{
-          background: "radial-gradient(circle, rgba(168, 85, 247, 0.45) 0%, rgba(99, 102, 241, 0.25) 50%, transparent 80%)",
+          background: "radial-gradient(circle, rgba(168, 85, 247, 0.5) 0%, rgba(217, 70, 239, 0.25) 45%, rgba(99, 102, 241, 0.15) 75%, transparent 90%)",
         }}
       />
 
@@ -127,6 +133,8 @@ export default function Home() {
             onOpenWorkspace={handleLaunchWorkspace}
             onOpenForensics={handleOpenForensics}
             onOpenDocs={() => setIsTechModalOpen(true)}
+            onOpenMultiHead={() => setActiveTab("multihead")}
+            onOpenStreaming={() => setActiveTab("streaming")}
           />
         )}
 
@@ -166,6 +174,20 @@ export default function Home() {
               onLoadConfig={(loaded) => setSimConfig(loaded)}
               onNavigateToWorkspace={() => setActiveTab("workspace")}
             />
+          </div>
+        )}
+
+        {/* VIEW 6: MULTI-HEAD SYNAPTIC BINDING & ASSOCIATIVE PROBE */}
+        {activeTab === "multihead" && (
+          <div className="py-4">
+            <MultiHeadProbeSection simulation={simulation} />
+          </div>
+        )}
+
+        {/* VIEW 7: STREAMING & EDGE SIMULATION (INFINITE HORIZON & OOM) */}
+        {activeTab === "streaming" && (
+          <div className="py-4">
+            <StreamingEdgeLab />
           </div>
         )}
       </div>

@@ -3,7 +3,7 @@
 import React from "react";
 import { Cpu, ArrowUpRight, BookOpen, LogOut, UserCheck } from "lucide-react";
 
-export type NavTab = "landing" | "login" | "dashboard" | "workspace" | "forensics" | "telemetry" | "benchmarks";
+export type NavTab = "landing" | "login" | "dashboard" | "workspace" | "forensics" | "multihead" | "streaming" | "telemetry" | "benchmarks";
 
 interface NavbarProps {
   activeTab: NavTab;
@@ -51,7 +51,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             [
               { id: "landing", label: "Overview" },
               { id: "workspace", label: "Workspace" },
-              { id: "forensics", label: "Memory Forensics" },
+              { id: "multihead", label: "Multi-Head Probe" },
+              { id: "streaming", label: "Infinite Stream & OOM" },
               { id: "telemetry", label: "Telemetry" },
               { id: "benchmarks", label: "Benchmarks" },
             ].map((item) => {
@@ -60,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   key={item.id}
                   onClick={() => onSelectTab(item.id as NavTab)}
-                  className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-full transition-all cursor-pointer ${
                     isActive
                       ? "bg-purple-500/20 text-purple-200 border border-purple-400/50 font-semibold shadow-sm"
                       : "text-slate-400 hover:text-slate-100 hover:bg-white/5"
@@ -74,6 +75,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             // Landing Page Navigation Links
             [
               { id: "landing", label: "Home" },
+              { id: "multihead", label: "Multi-Head" },
+              { id: "streaming", label: "Edge OOM" },
               { id: "telemetry", label: "Complexity" },
               { id: "benchmarks", label: "Benchmarks" },
             ].map((item) => {
@@ -82,7 +85,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   key={item.id}
                   onClick={() => onSelectTab(item.id as NavTab)}
-                  className={`px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-full transition-all cursor-pointer ${
                     isActive
                       ? "bg-purple-500/20 text-purple-200 border border-purple-400/50 font-semibold shadow-sm"
                       : "text-slate-400 hover:text-slate-100 hover:bg-white/5"

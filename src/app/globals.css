@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #06020e;
+  --foreground: #f8fafc;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Luxury Editorial Serif Font */
+.font-serif-luxury {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Monospace utility */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ========================================================================= */
+/* LUXURY PURPLE LIQUID GLASS & AESTHETICS (REFERENCE THEME)                 */
+/* ========================================================================= */
+
+.purple-glass {
+  background: linear-gradient(135deg, rgba(26, 12, 48, 0.65) 0%, rgba(13, 6, 26, 0.85) 100%);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.purple-glass-accent {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.18) 0%, rgba(236, 72, 153, 0.08) 50%, rgba(14, 8, 30, 0.9) 100%);
+  backdrop-filter: blur(28px) saturate(220%);
+  -webkit-backdrop-filter: blur(28px) saturate(220%);
+  border: 1px solid rgba(192, 132, 252, 0.35);
+  box-shadow: 0 16px 48px 0 rgba(147, 51, 234, 0.25), inset 0 1px 2px 0 rgba(255, 255, 255, 0.25);
+}
+
+.purple-glass-card {
+  background: linear-gradient(145deg, rgba(22, 11, 40, 0.7) 0%, rgba(11, 5, 20, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(147, 51, 234, 0.18);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.purple-glass-card:hover {
+  border-color: rgba(192, 132, 252, 0.5);
+  box-shadow: 0 20px 50px -10px rgba(168, 85, 247, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Pill Button with Purple Glow */
+.btn-purple-glow {
+  background: linear-gradient(135deg, #9333ea 0%, #7c3aed 50%, #4f46e5 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 30px -4px rgba(147, 51, 234, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-purple-glow:hover {
+  box-shadow: 0 12px 40px -2px rgba(168, 85, 247, 0.85), inset 0 1px 2px rgba(255, 255, 255, 0.45);
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Perspective Cybernetic Floor Grid */
+.bg-perspective-grid {
+  background-image: 
+    linear-gradient(to right, rgba(168, 85, 247, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(168, 85, 247, 0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Floating Ambient Aurora Beam Keyframes */
+@keyframes auroraPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.08) translateY(-15px);
+  }
+}
+
+.animate-aurora-beam {
+  animation: auroraPulse 8s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #06020e;
+}
+::-webkit-scrollbar-thumb {
+  background: #271442;
+  border-radius: 9999px;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
+}
+
+/* Range input */
+input[type="range"] {
+  accent-color: #a855f7;
+}
